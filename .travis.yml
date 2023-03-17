@@ -1,0 +1,20 @@
+language: python
+python:
+  - 3.6
+install: pip install tox
+matrix:
+  include:
+    - python: "3.6"
+      env: TOXENV=test
+    - python: "3.6"
+      env: TOXENV=pylint
+    - python: "3.6"
+      env: TOXENV=flake8
+    - python: "3.6"
+      env: TOXENV=mypy
+    - python: "3.6"
+      env: TOXENV=vulture
+    - python: "3.6"
+      env: TOXENV=yapf
+sudo: false
+script: tox -e $TOXENV
